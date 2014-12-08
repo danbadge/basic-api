@@ -1,5 +1,9 @@
-require 'sinatra'
+require 'sinatra/base'
 
-get '/status' do
-  '200 OK'
+class StatusResource < Sinatra::Base
+
+  get '/status' do
+    '200 OK'
+  end
+
 end

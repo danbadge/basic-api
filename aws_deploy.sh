@@ -1,1 +1,2 @@
-bundle exec rake test
+bundle install
+bundle exec rake server:restart

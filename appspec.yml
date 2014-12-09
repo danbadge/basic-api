@@ -8,10 +8,10 @@ hooks:
     - location: provision.sh
       timeout: 600
   ApplicationStart:
-    - location: aws_deploy.sh
+    - location: /var/webapps/basic-api/aws_deploy.sh
       timeout: 600
   ValidateService:
-    - location: validate.sh
+    - location: /var/webapps/basic-api/validate.sh
       timeout: 600
 #permissions:
 #  - object: /var/webapps/basic-api/aws_deploy.sh

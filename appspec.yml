@@ -1,0 +1,6 @@
+os: linux
+files:
+  - source: lib
+    destination: /webapps/basic-api
+  - source: Gemfile
+    destination: /webapps/basic-api

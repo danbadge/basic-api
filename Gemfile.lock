@@ -37,6 +37,7 @@ PLATFORMS
 
 DEPENDENCIES
   httparty
+  rake
   rakeup (~> 1.0)
   rspec
   sinatra

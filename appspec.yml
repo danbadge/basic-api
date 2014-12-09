@@ -4,14 +4,17 @@ files:
   - source: /
     destination: /var/webapps/basic-api
 hooks:
+  BeforeInstall:
+    - location: provision.sh
+      timeout: 600
   ApplicationStart:
-    - location: /var/webapps/basic-api/aws_deploy.sh
-      timeout: 360
+    - location: aws_deploy.sh
+      timeout: 600
   ValidateService:
-    - location: /var/webapps/basic-api/validate.sh
-      timeout: 360
-permissions:
-  - object: /var/webapps/basic-api/aws_deploy.sh
-    mode: 755
-  - object: /var/webapps/basic-api/validate.sh
-    mode: 755
+    - location: validate.sh
+      timeout: 600
+#permissions:
+#  - object: /var/webapps/basic-api/aws_deploy.sh
+#    mode: 755
+#  - object: /var/webapps/basic-api/validate.sh
+#    mode: 755

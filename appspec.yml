@@ -5,8 +5,8 @@ files:
     destination: /var/webapps/basic-api
 hooks:
   ApplicationStart:
-    - location: /var/webapps/aws_deploy.sh
+    - location: /var/webapps/basic-api/aws_deploy.sh
       timeout: 360
   ValidateService:
-    - location: /var/webapps/validate.sh
+    - location: /var/webapps/basic-api/validate.sh
       timeout: 360

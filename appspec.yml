@@ -14,6 +14,6 @@ hooks:
     - location: /var/webapps/basic-api/validate.sh
       timeout: 600
 permissions:
-  - object: /var/webapps/basic-api/aws_deploy.sh
+  - object: /var/webapps/basic-api
     pattern: "**"
     mode: 755

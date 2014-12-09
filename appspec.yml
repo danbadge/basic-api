@@ -13,8 +13,7 @@ hooks:
   ValidateService:
     - location: /var/webapps/basic-api/validate.sh
       timeout: 600
-#permissions:
-#  - object: /var/webapps/basic-api/aws_deploy.sh
-#    mode: 755
-#  - object: /var/webapps/basic-api/validate.sh
-#    mode: 755
+permissions:
+  - object: /var/webapps/basic-api/aws_deploy.sh
+    pattern: "**"
+    mode: 755

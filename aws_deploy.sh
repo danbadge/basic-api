@@ -3,5 +3,8 @@ S3_BUCKET="s3://${S3_BUCKET_NAME}/"
 APP_VERSION=`git rev-parse --short HEAD`
 APP_NAME="basic-api"
 
-zip -r "${APP_NAME}-${APP_VERSION}.zip" . -x *.git*
+zip -r "${APP_NAME}-${APP_VERSION}.zip" . -x *.git* *.idea*
+
 pip install awscli
+
+aws something

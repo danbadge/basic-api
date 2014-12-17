@@ -8,8 +8,27 @@
       "Properties" : {
         "InstanceId" : { "Ref" : "EC2Instance" },
         "Domain" : "vpc"
-      },
-      "DependsOn" : "VPCGatewayAttachment"
+      }
+    },
+
+    "InstanceSecurityGroup" : {
+      "Type" : "AWS::EC2::SecurityGroup",
+      "Properties" : {
+        "GroupDescription" : "Enable SSH access and HTTP access on the inbound port",
+        "VpcId" : "vpc-5e24ef3b",
+        "SecurityGroupIngress" : [ {
+          "IpProtocol" : "tcp",
+          "FromPort" : "22",
+          "ToPort" : "22",
+          "CidrIp" : "0.0.0.0/0"
+        },
+        {
+          "IpProtocol" : "tcp",
+          "FromPort" : "80",
+          "ToPort" : "80",
+          "CidrIp" : "0.0.0.0/0"
+        } ]
+      }
     },
 
     "EC2Instance" : {
@@ -18,8 +37,8 @@
         "ImageId" : "ami-f0b11187",
         "InstanceType" : "t2.micro",
         "KeyName" : "main",
-        "SubnetId" : { "Ref" : "Subnet" },
-        "SecurityGroupIds" : [ { "Ref" : "SecurityGroup" } ],
+        "SubnetId" : "subnet-da0a8dbf",
+        "SecurityGroupIds" : [ { "Ref" : "InstanceSecurityGroup" } ],
         "Tags" : [ { "Key" : "Name", "Value" : "basic-api-instance" } ]
       }
     }

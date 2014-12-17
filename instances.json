@@ -1,0 +1,27 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description" : "Fire up an AWS instance",
+
+  "Resources" : {
+    "EIP" : {
+      "Type" : "AWS::EC2::EIP",
+      "Properties" : {
+        "InstanceId" : { "Ref" : "EC2Instance" },
+        "Domain" : "vpc"
+      },
+      "DependsOn" : "VPCGatewayAttachment"
+    },
+
+    "EC2Instance" : {
+      "Type" : "AWS::EC2::Instance",
+      "Properties" : {
+        "ImageId" : "ami-f0b11187",
+        "InstanceType" : "t2.micro",
+        "KeyName" : "main",
+        "SubnetId" : { "Ref" : "Subnet" },
+        "SecurityGroupIds" : [ { "Ref" : "SecurityGroup" } ],
+        "Tags" : [ { "Key" : "Name", "Value" : "basic-api-instance" } ]
+      }
+    }
+  }
+}
